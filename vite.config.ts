@@ -8,12 +8,13 @@ import { devtools } from "@tanstack/devtools-vite"
 const config = defineConfig({
   plugins: [
     // this is the plugin that enables path aliases
+    devtools(), // having the plugin here breaks server functions
     viteTsConfigPaths({
       projects: ['./tsconfig.json'],
     }),
     tailwindcss(),
     tanstackStart(),
-    devtools(),
+    // devtools(), // having it here works fine with TSS
     viteReact(),
   ],
 })
